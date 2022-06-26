@@ -1,6 +1,6 @@
 const getRange = (start: number, end: number) => {
   return Array(end - start + 1)
-    .fill()
+    .fill(1)
     .map((v, i) => i + start);
 };
 
