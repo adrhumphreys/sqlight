@@ -1,16 +1,16 @@
 import type { FC } from "react";
-import { Table } from "./sql/useIntrospectDb";
+import { Schema } from "./sql/schema";
 
 type Props = {
-  tables: Table[];
+  schema?: Schema;
   setSelectedTable: (table: string) => void;
 };
 
-const TableList: FC<Props> = ({ setSelectedTable, tables }) => {
+const TableList: FC<Props> = ({ schema, setSelectedTable }) => {
   return (
     <div className="h-full">
       <ul className="divide-y divide-gray-200">
-        {tables.map(({ name, type }) => (
+        {schema?.tables.map(({ name, type }) => (
           <li key={name + type} className="w-full">
             <button
               onClick={() => setSelectedTable(name)}

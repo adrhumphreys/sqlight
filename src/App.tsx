@@ -47,7 +47,7 @@ const App: FC<Props> = ({}) => {
             />
           </label>
         </div>
-        <TableList tables={tables} setSelectedTable={setSelectedTable} />
+        <TableList schema={schema} setSelectedTable={setSelectedTable} />
       </aside>
       <main className="flex-1 w-full relative z-0 overflow-y-auto focus:outline-none">
         <QueryTable db={db} schema={schema} selectedTable={selectedTable} />
