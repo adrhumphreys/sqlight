@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { Database } from "sql.js";
+import Garden from "./Garden";
 import Query from "./Query";
 import { Schema } from "./sql/schema";
 import TableView, { ConvertedRow } from "./TableView";
@@ -40,7 +41,12 @@ const QueryTable: FC<Props> = ({ db, schema, selectedTable }) => {
   }, [query, db]);
 
   if (!db || !selectedTable || !schema) {
-    return <p>Select a table</p>;
+    return (
+      <div className="grid place-content-center h-full gap-4">
+        <Garden />
+        <p className="text-xl text-center font-bold">Select a table/file</p>
+      </div>
+    );
   }
 
   const runQueryFn = (query: string) => setQuery(query);
